@@ -22,32 +22,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    int r = (arc4random() % 2);
-
-    NSLog(@"login");
     signupViewController* svc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
     svc.delegate = self;
-    
-      
-//    [self addChildViewController:vc];
     [self showViewController:svc];
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 -(void)didFinishLoginProcess:(id)sender
@@ -57,7 +42,7 @@
     [self showViewController:vc];
 }
 
-- (void)showViewController:(UIViewController *)viewController;
+- (void)showViewController:(UIViewController *)viewController
 {
     if (self.currentVC)
     {
@@ -68,10 +53,10 @@
     self.currentVC = viewController;
     [self.containerView endEditing:YES];
     [self addChildViewController:viewController];
-    viewController.view.frame = self.containerView.bounds;
     [self.containerView addSubview:viewController.view];
     [viewController didMoveToParentViewController:self];
 }
+
 
 - (void)hideViewController:(UIViewController *)viewController;
 {
